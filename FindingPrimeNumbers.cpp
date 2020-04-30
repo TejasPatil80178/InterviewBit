@@ -8,7 +8,7 @@ vector<int> Solution::sieve(int n) {
     {    ////Assume all the numbers ar intially prime
         if(p[i]==1)
         {
-            for(int j = 2;i*j<=n;j++)
+            for(int j = i;i*j<=n;j++)
             {   ///Discard the multiples of all the numbers in the list
                 p[i*j] = 0;
             }
