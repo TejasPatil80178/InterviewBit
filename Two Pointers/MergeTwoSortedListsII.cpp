@@ -10,11 +10,11 @@ void Solution::merge(vector<int> &a, vector<int> &b) {
     }
     sort(a.begin(),a.end());
     
-/*  int i = 0;
+/*  	int i = 0;
 	int j = 0;
 	int n = a.size();
 	int m = b.size();
-	while(i<a.size() && j<m)
+	while(j<m)
 	{
 		//cout<<a[i]<<" "<<b[j]<<endl;
 		if(b[j]<=a[i])
