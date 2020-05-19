@@ -1,5 +1,5 @@
  
-/*
+/*      ///////Trick Solution
 int soln(vector<int> a,int b)
 {
     sort(a.begin(),a.end());
@@ -11,9 +11,9 @@ int Solution::kthsmallest(const vector<int> &a, int k) {
 }
 */
 
-
+/////Standard Solution
 int Solution::kthsmallest(const vector<int> &a, int k) {
-    int n = a.size();
+    	int n = a.size();
 	int min = *min_element(a.begin(),a.end());
 	int max = *max_element(a.begin(),a.end());
 	
@@ -34,9 +34,6 @@ int Solution::kthsmallest(const vector<int> &a, int k) {
 		}
 		else if(cless>=k) max = mid-1;     /////element to find is less than mid
 		else min = mid+1;
-    
-   }
-   
-   
+	}
    return 0;
 }
