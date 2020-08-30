@@ -1,30 +1,18 @@
 vector<int> Solution::findPerm(const string s, int n) {
-    //int n = s.length()+1;
-	int d = 0;
-	int i = 0;
-	for(int j = 0;j<s.length();j++)
-	{
-		if(s[j]=='D')
-		{
-			d++;
-		}
-	}
-	i = d+1;
-	vector<int> v;
-	v.push_back(i);
-	i++;
-	for(int j = 0;j<s.length();j++)
-	{
-		if(s[j]=='D')
-		{
-			v.push_back(d);
-			d--;
+    vector<int> v(n,0);
+	int j = 1;
+	int d = n;
+	for(int i=0;i<n-1;i++){
+		if(s[i]=='I'){
+			v[i] = j;
+			j++;
 		}
 		else{
-			v.push_back(i);
-			i++;
+			v[i] = d;
+			d--;
 		}
 	}
-	
-	return v;
+	v[n-1] = (j+d) / 2;
+    
+    return v;
 }
