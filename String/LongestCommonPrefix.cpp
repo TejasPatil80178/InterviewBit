@@ -1,30 +1,18 @@
-bool compare(string a,string b)
-{
-	return a.length()<b.length();
-}
-
-bool isSame(vector<string> v,char k,int j)
-{
-	for(int i=0;i<v.size();i++)
-	{
-		if(v[i][j]!=k)
-		{
-			return 0;
-		}
-	}
-	return 1;
-}
-
 string Solution::longestCommonPrefix(vector<string> &s) {
-    sort(s.begin(),s.end(),compare);
-	int n = s[0].length();
-	for(int i = 0;i<n;i++)
-	{
-		char k = s[0][i];
-		if(!isSame(s,k,i)){
-			return s[0].substr(0,i);
-			//return 0;
+    sort(s.begin(),s.end());
+    string c = s[0];
+	int n = s.size();
+	for(int i = 1;i<n;i++){
+		string a;
+		for(int j=0;j<min(s[i].size(),c.size());j++){
+			if(c[j]==s[i][j]){
+				a+=c[j];
+			}
+			else{
+				c = a;
+				break;
+			}
 		}
 	}
-	return s[0];
+	return c;
 }
