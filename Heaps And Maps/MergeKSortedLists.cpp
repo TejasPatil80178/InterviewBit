@@ -12,27 +12,26 @@ ListNode* Solution::mergeKLists(vector<ListNode*> &a) {
     // Do not print the output, instead return values as specified
     // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
     int n = a.size();
-    map<int,int> m;
-	for(int i=0;i<n;i++)
-	{
-		ListNode* temp = a[i];
-		while(temp!=NULL)
-		{
-			m[temp->val]++;
-			temp = temp->next;
-		}
-	}
-	ListNode* temp = new ListNode(0);
-	ListNode* nl = temp;
-	for(auto it = m.begin();it!=m.end();it++)
-	{
-	    while(it->second > 0)
-	    {
-	        temp->next = new ListNode(it->first);
-	    	temp = temp->next;
-	    	it->second--;
-	    }
-	}
-	
-	return nl->next;
+    vector<int> v;
+    for(int i = 0;i<n;i++){
+        ListNode* temp = a[i];
+        while(temp!=NULL){
+            v.push_back(temp->val);
+            temp = temp->next;
+        }
+    }
+    sort(v.begin(),v.end());
+    if(!v.empty()){
+        ListNode* nl = new ListNode(v[0]);
+        ListNode* temp = nl;
+        for(int i = 1;i<v.size();i++){
+            temp->next = new ListNode(v[i]);
+            temp = temp->next;
+        }
+        return nl;
+    }
+    else{
+        ListNode* temp;
+        return temp;
+    }
 }
